@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Storage directories - don't check in user data
+storage/uploads/*
+storage/predictions/*
+!storage/uploads/.gitkeep
+!storage/predictions/.gitkeep
+!storage/predictions/extraction_results/.gitkeep
+!storage/predictions/logs/.gitkeep
+!storage/predictions/annotations/.gitkeep
+
+# Environment files
+.env
+.env.*
+
+# Model files and caches
+.huggingface/
+.cache/
+.ollama/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

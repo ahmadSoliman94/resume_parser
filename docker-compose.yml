@@ -1,0 +1,49 @@
+services:
+  resume_agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: resume_agent
+    restart: unless-stopped
+    ports:
+      - "5000:8000"
+    volumes:
+      - ./storage:/app/storage
+      - qwen_model_data:/app/hf_models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - USE_GPU=True
+      - BATCH_SIZE=3
+      - PARALLEL_BATCHES=1
+      - ENABLE_ANNOTATION=True
+      - TRANSFORMERS_OFFLINE=0
+      - HF_HUB_ENABLE_HF_TRANSFER=0
+      - HUGGINGFACE_HUB_CACHE=/root/.cache/huggingface
+      - OLLAMA_BASE_URL=http://ollama-service:11434/v1
+    command: >
+      bash -c "
+      if [ ! -f /app/hf_models/Qwen2.5-VL-7B-Instruct/model-00001-of-00005.safetensors ]; then
+        echo 'Model not found. Downloading...';
+        python3 -c \"from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen2.5-VL-7B-Instruct', local_dir='/app/hf_models/Qwen2.5-VL-7B-Instruct')\";
+      else
+        echo 'Model found. Starting application.';
+      fi;
+      uvicorn app.main:app --host 0.0.0.0 --port 8000
+      "
+    networks:
+      - ollama-network
+
+volumes:
+  qwen_model_data:
+    name: qwen_model_data
+    external: true
+    
+networks:
+  ollama-network:
+    external: true

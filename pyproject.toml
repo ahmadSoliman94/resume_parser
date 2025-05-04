@@ -1,0 +1,21 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"  # Adjust to your minimum Python version
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "UP", "SIM", "N"]
+
+# Exclude virtual environments, caches, etc.
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "venv",
+    "dist",
+    "tests",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"

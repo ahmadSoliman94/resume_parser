@@ -1,0 +1,81 @@
+:root {
+    --md-primary-fg-color: #4d80affa;        /* Dark red */
+    --md-primary-fg-color--light: #CD5C5C; /* Lighter variant */
+    --md-primary-fg-color--dark: #660000;  /* Darker variant */
+    .md-header__title .md-header__topic:first-child {
+        color: #fff6f6;
+        font-weight: 700; /* Make it less bold */
+        font-style: bold; /* Make it italic */
+      }
+    /* Make the logo circular and bigger */
+    .md-header__button.md-logo img,
+    .md-nav__button.md-logo img {
+    border-radius: 20%; /* Creates the circular shape */
+    width: 48px !important; /* Increase width - default is usually around 24px */
+    height: 48px !important; /* Increase height to match width */
+    }
+
+    /* Adjust header height to accommodate larger logo */
+    .md-header__inner {
+    height: 72px; /* Increase header height */
+    padding: 8px; /* Add some padding */
+    }
+
+    /* Reposition navigation icon if needed */
+    .md-header__button.md-icon {
+    margin: auto 0; /* Center vertically */
+    }
+
+    /* Customize search bar */
+    .md-search__inner {
+        /* Change width of the search modal */
+        width: 10rem;
+    }
+    
+    /* Make search bar rounded/circular */
+    .md-search__form {
+        border-radius: 20px !important; /* More rounded corners - increase for more circular appearance */
+        background-color: rgba(255, 241, 241, 0.1); /* Optional: lighter background */
+        padding: 0 0.6rem; /* Add some padding */
+    }
+    
+    /* Style the search input itself */
+    .md-search__input {
+        border-radius: 20px !important; /* Match the form's border radius */
+        padding-left: 2.2rem; /* Make room for the search icon */
+    }
+    
+    /* Adjust the search icon position */
+    .md-search__icon.md-icon {
+        top: 0.55rem; /* Fine-tune icon vertical position */
+    }
+    
+    /* Make the expanded search modal have rounded corners too */
+    .md-search__output {
+        border-radius: 12px; /* Rounded corners for the dropdown */
+        margin-top: 0.5rem; /* Add a small gap between input and results */
+    }
+
+    /* Move repository link to the far right */
+    .md-header__source {
+        margin-left: auto !important;
+        order: 10 !important;
+    }
+    
+    /* Adjust other header elements if needed */
+    .md-header__title {
+        margin-right: auto !important;
+    }
+    
+    /* Make sure the header uses flexbox */
+    .md-header__inner {
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+    
+    /* Fix any potential alignment issues */
+    .md-header__button {
+        margin: 0 0.4rem !important;
+    }
+    
+  }

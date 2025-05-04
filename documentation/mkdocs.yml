@@ -1,0 +1,87 @@
+site_name: Resume Parser AI
+site_description: Documentation for the Resume/CV parsing system
+site_author: Your Organization
+copyright: Copyright &copy; 2025
+
+# Repository
+repo_name: resume_parser
+repo_url: https://github.com/yourusername/resume_parser
+
+# ip and the port
+dev_addr: 0.0.0.0:2000
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: assets/images/icon.png
+  favicon: assets/images/logo.png
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night  # Moon icon for switching to dark mode
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep blue
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny  # Sun icon for switching to light mode
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Configuration: getting-started/configuration.md
+    - Usage: getting-started/usage.md
+
+  - API Reference:
+    - Overview: api/overview.md
+    - Endpoints: api/endpoints.md
+    - Models: api/models.md
+  - Core Components:
+    - OCR Service: components/ocr-service.md
+    - Annotator: components/annotator.md
+    - Processing: components/processing.md
+  - Postman Usage:
+    - Guide: development/postman-usage.md
+  - Tests:
+    - Overview: tests/tests.md
+
+extra:
+  generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/resume_parser
+
+
+extra_css:
+  - assets/stylesheets/custom.css
+
+plugins:
+  - search
+  - offline
+  - mkdocs-material:
+      # Enable if you're using the Material theme
+  - gh-deploy
